@@ -1,3 +1,108 @@
+*{
+	box-sizing: border-box;
+}
+
 html, body {
-  margin: 20px;
+  margin: 0px;
+  font-family: Tahoma, Geneva, sans-serif;
+  background-color: #f1f1f1;
+}
+
+header{
+	overflow: hidden;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding: 0px 20px;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+header img{
+	width: 100px;
+	float: left;
+}
+
+div.searchBox{
+	float: left;
+	margin-top: 20px;
+	margin-left: 180px;
+
+
+}
+div.searchBox input[type='text']{
+	width: 580px;
+	margin-right: 0px;
+}
+div.searchBox button{
+	width: 50px;
+	margin-left: 0px;
+}
+
+div.searchBox input[type='text'], div.searchBox button{
+	height: 30px;
+}
+
+button.loginButton{
+	float: right;
+	width: 70px;
+	height: 30px;
+	background-color: #229;
+	color: white;
+	border-radius: 3px;
+	border: none;
+	margin-top: 20px;
+}
+
+div.videoSection{
+	margin-left: 300px;
+	margin-right: auto;
+}
+
+div.player{
+	width: 640px;
+	height: 390px;
+	background-color: #555;
+}
+
+div.videoTitle, div.videoDescription{
+	width: 640px;
+	height: 150px;
+	border-radius: 2px;
+	background-color: #fff;
+	margin-top: 10px;
+	padding: 15px;
+	font-size: 0.9em;
+}
+
+div.videoTitle h2{
+	margin: 5px 0px;
+}
+
+div.videoAuthorInfo{
+	float: left;
+	overflow: hidden;
+	font-size: 0.9em;
+	vertical-align: top;
+	font-weight: bold;
+}
+div.videoAuthorInfo img{
+	float: left;
+	margin-right: 5px;
+}
+
+button.subscribeButton{
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 2px;
+	height: 20px;
+	float: left;
+	margin: 5px 0px;
+}
+
+footer{
+	border-top: 1px solid #ccc;
+	background-color: #fff;
+	padding: 10px;
+	margin-top: 10px;
 }
