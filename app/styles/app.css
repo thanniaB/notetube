@@ -25,7 +25,7 @@ header img{
 div.searchBox{
 	float: left;
 	margin-top: 20px;
-	margin-left: 180px;
+	margin-left: 10%;
 
 
 }
@@ -54,14 +54,15 @@ button.loginButton{
 }
 
 div.videoSection{
-	margin-left: 300px;
+	margin-left: 20%;
 	margin-right: auto;
 }
 
-div.player{
+.player{
 	width: 640px;
 	height: 390px;
 	background-color: #555;
+	border: none;
 }
 
 div.videoTitle, div.videoDescription{

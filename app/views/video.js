@@ -1,4 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.View.extend({
-});
+var VideoView = Ember.View.extend({
+	
+    });
+
+export default VideoView;
+
