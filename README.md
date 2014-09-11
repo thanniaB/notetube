@@ -1,13 +1,13 @@
-### Given I have a webpage with a Youtube video loaded
+#### Given I have a webpage with a Youtube video loaded
 
-#### When I access the webpage
-##### Then I should be able to see the video's title
-##### And I should be able to see the video's author
-##### And I should be able to see the video's date of upload
-##### And I should be able to see the video's description
+##### When I access the webpage
+Then I should be able to see the video's title
+And I should be able to see the video's author
+And I should be able to see the video's date of upload
+And I should be able to see the video's description
 
-#### When I click on the player 
-##### The I should be able to watch the video play
+##### When I click on the player 
+The I should be able to watch the video play
 
 # YOUTUBE NOTES AWESOME APP OMG #
 
