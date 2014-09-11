@@ -20,8 +20,21 @@
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/notetube.js"></script>
+    
     <script>
+
+    
+
       window.Notetube = require('notetube/app')['default'].create(NotetubeENV.APP);
+
+      window.onClientLoad = function()   {
+        var videoController = window.Notetube.__container__.lookup('controller:video')
+        videoController.set('isApiReady',true);   
+        console.log(':D');
+
+      }
     </script>
+    <script src="https://apis.google.com/js/client.js?onload=onClientLoad"></script>
   </body>
 </html>
+
