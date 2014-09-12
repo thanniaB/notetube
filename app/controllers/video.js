@@ -4,8 +4,6 @@ import Ember from 'ember';
 var VideoController = Ember.Controller.extend({
 	isApiReady: false,
 	init: function () {
-		// console.log('init video controller ',this.toString());
-		// console.debug('model',this.get('model'));
 		console.log(gapi);
 		//TODO check for possible race conditions
 		//TODO please don't tell anybody 
@@ -15,49 +13,46 @@ var VideoController = Ember.Controller.extend({
 	loadYouTubeDataWhenApiIsReady: function (){
 		var self = this;
          if(this.get('isApiReady')){
-         	gapi.client.load('youtube', 'v3', function(){         		
+         	gapi.client.load('youtube', 'v3', function(){
+         		gapi.client.setApiKey('AIzaSyDdz_Hharg4nf8acg4QVEcfWqdxpKkSee0');         		
          		self.getDataFromYoutube("blah blah");
          	});
 			
          }
 	}.observes('isApiReady'),
-	// onModelChange:function() {
-    //  console.log('onModelChange video controller :',this.toString());
-	// 	console.debug('model',this.get('model'));
-	// }.observes('model')
-	
+		
 	getDataFromYoutube: function (query) {
 		var self = this;
-	 // TODO use the gdata api wrapper
-	 // https://apis.google.com/js/client.js?onload=googleApiClientReady
-		// $.getJSON( "http://gdata.youtube.com/feeds/api/videos",{ 
-  //   			part: 'snippet', alt: 'json', 'max-results': 1, q: query 
-  //   		})
-		//     .success(function (data) {
-		// 	     console.log(self.dataToVideos(data.feed.entry));
-
-	 //        });
-
+		if(!query){
+			query = "rick roll";
+		}
+		console.log(query);
 		console.log(gapi);
 		gapi.client.youtube.search.list({
 	        part: 'snippet',
 	        alt: 'json',
-	        'max-results': 1,
+	        maxResults: 1,
 	        q: query
 	    })
-	    .execute(self.showResponse/*function (data) {
-	    	debugger
-			console.log(self.onSearchResponse(data.feed.entry));
-	 	}*/);
+	    .execute(self.showResponse);
 
-	   //TODO  RESEARCH promises http://wiki.commonjs.org/wiki/Promises    
-
-
+	   //TODO  RESEARCH promises http://wiki.commonjs.org/wiki/Promises
 	},
 
 	showResponse: function(response){
 		var responseString = JSON.stringify(response, '', 2);
-    	console.log(responseString);
+
+		var title = responseString.match(/"title":\s"(.*)"/);
+		var date = responseString.match(/"publishedAt":\s"(.*)"/);
+		var description = responseString.match(/"description":\s"(.*)"/);
+		var author = responseString.match(/"channelTitle":\s"(.*)"/);
+		var youtube_id = responseString.match(/"videoId":\s"(.*)"/);
+		
+		console.log(youtube_id[1]);
+		console.log(title[1]);
+		console.log(date[1]);
+		console.log(description[1]);
+		console.log(author[1]);
 	},
 
 	dataToVideos: function (entries) {
@@ -68,33 +63,25 @@ var VideoController = Ember.Controller.extend({
 	      entry = entries[i];
 	      console.log(entry);
 
-	      results.push(/*this.store.createRecord('video',*/{
+	      /*results.push(this.store.createRecord('video',{
 	        youtube_id: entry.id.$t.split('/')[6], //TODO extract to method
 	        title: entry.title.$t,
 	        author: entry.author[0].name.$t,
 	        date: entry.published.$t,
 	        description: entry.media$group.media$description.$t
 
-	      })/*)*/;
+	      }))*/;
 	    }
-        // this.set('firstResult', results[0]) ;
 	    return results;
 	},
 
-    // firstResult: null,
-    // title: Ember.computed.alias('firstResult.title'),
-    // fancyTitle: function(){
-    // 	return this.get('title') + " fancy ";
-    // }.property(),
-
-
-    //  {
-    //  	this.set('fancyTitle','jejejejeje');
-    //  	//ember run loop?
-    //  }
-
-
-
+	actions: {
+		search: function () {
+			var query = this.get('searchQuery');
+			console.log("lo que pusiste en el search: " + query);			
+			this.getDataFromYoutube(query);
+		}
+	}
 
 });
 

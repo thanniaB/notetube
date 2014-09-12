@@ -1,20 +1,31 @@
-<div class='videoSection'>
-	{{video-player youtube_id=model.youtube_id}}
+<header>
+	<img src='youtube-logo.png' />
+	<div class='searchBox'>
+		{{input type="text" id="search-box" value = searchQuery action="search"}}
+		<button class = 'fa fa-search' {{action "search" }}/>
+	</div>
+	<button class='loginButton'>Sign In</button>
+</header>
 
-	<div class="videoTitle">
-		<h2>{{model.title}}</h2>
-		<div>
-			<div class="videoAuthorInfo">
-				<img src="http://placehold.it/50x50" />
-			
-				{{model.author}}
-				<button class = "subscribeButton">Subscribe</button>
+<section>
+	<div class='videoSection'>
+		{{video-player youtube_id=model.youtube_id}}
+
+		<div class="videoTitle">
+			<h2>{{model.title}}</h2>
+			<div>
+				<div class="videoAuthorInfo">
+					<img src="http://placehold.it/50x50" />
+				
+					{{model.author}}
+					<button class = "subscribeButton">Subscribe</button>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="videoDescription">
-		<strong> Uploaded on {{model.date}} </strong>
-		<p> {{model.description}} </p>
+		<div class="videoDescription">
+			<strong> Uploaded on {{model.date}} </strong>
+			<p> {{model.description}} </p>
+		</div>
 	</div>
-</div>
+</section>
