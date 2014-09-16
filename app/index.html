@@ -25,10 +25,8 @@
       window.Notetube = require('notetube/app')['default'].create(NotetubeENV.APP);
 
       window.onClientLoad = function()   {
-        // var videoController = window.Notetube.__container__.lookup('controller:video')
-        // videoController.set('isApiReady',true);
-        var videoRoute = window.Notetube.__container__.lookup('route:video');
-        videoRoute.set('isApiReady',true);
+        var videoController = window.Notetube.__container__.lookup('controller:video')
+        videoController.set('isApiReady',true);
       }
     </script>
     <script src="https://apis.google.com/js/client.js?onload=onClientLoad"></script>

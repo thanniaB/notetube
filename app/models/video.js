@@ -4,7 +4,7 @@ var Video = DS.Model.extend({
   youtube_id: DS.attr('string'),
   title: DS.attr('string'),
   date: DS.attr('string'),
-  author: DS.attr('string'),
+  channel: DS.belongsTo('channel'),
   description: DS.attr('string')
 });
 

@@ -6,7 +6,7 @@ var VideoPlayerComponent = Ember.Component.extend({
     classNames: 'player',
     src: function (){  
        return "http://www.youtube.com/embed/" + this.get('youtube_id');
-    }.property()
+    }.property('youtube_id')
 });
 
 export default VideoPlayerComponent;
