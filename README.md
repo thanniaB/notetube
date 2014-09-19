@@ -1,12 +1,27 @@
-#### Given I have a webpage with a Youtube video loaded
+As a Simple Youtube user I want to see information about the video that I'm watching so that I know what it is about:
+I can see the video's title.
+I can see the video's description.
+I can see the video's date of upload.
+I can see the channel the video belongs to.
+I can see the channel's thumbnail.
+I can follow a link to the channel.
 
-##### When I access the webpage
+As a Simple Youtube user I want to be able to search for a video I want to watch so that I can watch it.
+I can type the video's name on the search box and get a video in return.
+
+As a Simple Youtube user I want to play the video on the page so that I can watch it.
+I can play and pause the video inside the page.
+___________________________________________________________________________
+
+Given I have a webpage with a Youtube video loaded
+
+When I access the webpage
 Then I should be able to see the video's title
 And I should be able to see the video's author
 And I should be able to see the video's date of upload
 And I should be able to see the video's description
 
-##### When I click on the player 
+When I click on the player 
 The I should be able to watch the video play
 
 # YOUTUBE NOTES AWESOME APP OMG #

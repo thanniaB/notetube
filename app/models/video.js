@@ -15,7 +15,7 @@ Video.reopenClass({
 			youtube_id: "PElhV8z7I60",
 			title: "The xx - Islands",
 			date: "Apr 20, 2010",
-			author: "Young Turks",
+			channel: 1,
 			description: "The xx in video purgatory. Directed by Saam."
 		}
 	]

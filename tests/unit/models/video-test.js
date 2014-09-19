@@ -2,7 +2,7 @@ import { test, moduleForModel } from 'ember-qunit';
 
 moduleForModel('video', 'Video', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:channel']
 });
 
 test('it exists', function() {
