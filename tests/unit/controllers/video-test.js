@@ -19,7 +19,7 @@ moduleFor('controller:video', 'VideoController', {
   },
   teardown: function() {
     // clean up after each test
-   
+
     delete window.gapi;
   }
 });
@@ -33,34 +33,19 @@ test('controller exists', function() {
 
 test("load default video data only when youtube data is loaded", function() {
 
-///SPY NOOOOOOO
-
-	
     //HERE A: create a mock/stub with sinon of gapi.client.load.call  http://sinonjs.org/
-
-    var spy = sinon.spy(gapi.client, 'load'); //o stub? o mock?
     var controller = this.subject();
-    var callback = function () {
-         		gapi.client.setApiKey('AIzaSyDdz_Hharg4nf8acg4QVEcfWqdxpKkSee0');         		
-         		self.getDataFromYoutube("xx islands");
-    }
-    //spy.withArgs('youtube', 'v3', callback);
+    var mock = sinon.mock(gapi.client);    
 
     controller.set('isApiReady',false);
     //assert that A hasn't been executed
-    sinon.assert.notCalled(spy);
     
     controller.set('isApiReady',true);
     //assert that A was executed with the correct parameters
-    sinon.assert.notCalled(spy);
-    //sinon.assert.called(spy.withArgs('youtube', 'v3', controller.callback));
-
-    // spy.args[0] == 'youtube'
-    // spy.args[1] == 'v3'
-    // typeof(spy.args[2]) == "function" 
-
-
-    //QUE LOCO OMG QUE EMOCION
+    mock.expects('load');//.withArgs("youtube", "v3", function () {}).once();
+    mock.verify();
+    mock.restore();
+    
     expect(0); 
 });
 
